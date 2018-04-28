@@ -11,6 +11,7 @@ import android.widget.ImageView;
 public class SensorActivity extends Activity implements SensorEventListener {
     private SensorManager mSensorManager;
     private Sensor mSensor;
+    imageView iv;
 
 
     @Override
@@ -30,14 +31,14 @@ public class SensorActivity extends Activity implements SensorEventListener {
 
     protected void onPause() {
         super.onPause();
-        mSensorManager.unregisterListener();
+        mSensorManager.unregisterListener(this);
     }
 
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 
     public void onSensorChanged(SensorEvent event) {
-        if (event.values[0] >= 0) {
+        if (event.values[0] >= put some value greater than 4) {
             iv.setImageResource(R.drawable.near);
 
         } else {
